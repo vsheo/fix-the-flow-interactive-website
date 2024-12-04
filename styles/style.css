@@ -1,0 +1,311 @@
+/* === RESET === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+    list-style: none;
+
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+}
+
+
+main {
+    .mobile_hidden {
+        display: none;
+
+        .week {
+            display: flex;
+            flex-direction: row;
+    
+            position: sticky;
+    
+            overflow-x: auto;
+            overflow-y: hidden;
+    
+            li {
+                padding: 0.8em;
+                margin-top: 0.1em;
+                margin-left: 0.6em;
+            }
+    
+            li:first-child {
+                margin-left: 2em;
+            }
+    
+            li:last-child {
+                margin-right: 2em;
+            }
+        }
+
+        .tijd {
+            li {
+                padding-top: 1em;
+                padding-bottom: 1em;
+                margin-left: 1em;
+            }
+    
+            li:last-child {
+                margin-bottom: 6em;
+                
+                @media screen and (min-width: 800px) {
+                    margin-bottom: 0;
+                }
+            }
+    
+            li::after {
+                content: "- - - - -";
+                display: block;
+                white-space: nowrap;
+                transform-origin: top left;
+                transform: rotate(90deg) translateY(-130%);
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+    
+            li:last-child::after {
+                content: "";
+            }
+        }
+
+        .radio_menu {
+            background-color: aquamarine;
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 20px;
+    
+            /* rechts in het midden */
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translate(90%, -50%);
+            transition: 0.5s;
+    
+            padding: 1em;
+            height: 17em;
+            width: 12em;
+
+            .openNav {
+                position: fixed;
+                top: 50%;
+                transform: translate(0, -50%);
+                background-color: aquamarine;
+                border: none;
+                border-radius: 150px;
+    
+                left: -0.8em;
+                width: 2em;
+                height: 2em;
+            }
+    
+            .openDetail {
+                margin-left: 1.5em;
+                border: none;
+                background-color: inherit;
+    
+                img {
+                    border-radius: 15px;
+                    height: 4em;
+                    width: 11em;
+                }
+            }
+        }
+
+        /* slide nav in beeld. classlist add met JS */
+        .nav-active {
+            transform: translate(0, -50%);
+            transition: 0.5s;
+        }
+
+        .player {
+            box-shadow: 0 0 16px #00000029;
+            border-radius: 10px;
+    
+            position: fixed;
+            bottom: 2em;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(40vw, 80vw, 30em);
+            height: 5em;
+    
+    
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+    
+            img {
+                border-radius: 10px;
+                width: 4em;
+                height: 4em;
+                margin-left: 0.5em;
+            }
+    
+            .dj_info {
+                position: relative;
+                left: 1em;
+                margin-right: auto;
+            }
+    
+            button {
+                color: white;
+                border-radius: 50%;
+                border: none;
+                height: 3em;
+                width: 3em;
+                margin-right: 1em;
+            }
+        }
+    }
+
+    .programma_container {
+
+    }
+
+    .programma_container {
+        display: grid;
+        grid-template-areas: 
+        "a b"
+        "c d";
+        gap: 1em;
+        padding: 1em;
+
+        /* SUMMARY POSITIE */
+        :nth-of-type(1) {
+            grid-area: a;
+        }
+        :nth-of-type(2) {
+            grid-area: b;
+        }
+        :nth-of-type(3) {
+            grid-area: c;
+
+            section {
+                margin-top: -35em;
+            }
+        }
+        :nth-of-type(4) {
+            grid-area: d;
+
+            /* section naar boven brengen op mobile versie */
+            section {
+                margin-top: -35em;
+            }
+        }
+
+        /* open details element heeft geen summary */
+        details[open] {
+            summary {
+                display: none;
+            }
+        }
+
+        /* DETAILS INDELEN */
+        details {
+            grid-area: section;
+    
+            summary {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 2em;
+                gap: 1em;
+    
+                img{
+                    width: 10em;
+                    height: 10em;
+                    box-shadow: 5px 5px 3px 0px #00000014;
+                }
+            }
+    
+            /* PROGRAMMA KAARTJES */
+            section {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+    
+                article {
+                    box-shadow: 0 0 8px #00000014;
+                    border-radius: 10px;
+                    padding: 0.5em;
+                    max-height: 20em;
+                    width: 16.2em;
+    
+                    display: grid;
+                    grid-template-columns: min-content 1fr;
+                    grid-template-rows: min-content min-content min-content;
+                    grid-template-areas: 
+                    "pic titel"
+                    ". info"
+                    ". djlink";
+    
+                    position: relative;
+                    right: 1em;
+    
+                    .titel {
+                        grid-area: titel;
+                        justify-self: start;
+                        align-self: center;
+                        margin-left: 0.3em;
+                    }
+    
+                    .profile_picture {
+                        grid-area: pic;
+    
+                        place-content: center;
+                        border-radius: 50%;
+                        height: auto;
+                        width: 3.5em;
+                        height: 3.5em;
+                    }
+    
+                    .info {
+                        grid-area: info;
+    
+                        max-width: 11em;
+                        justify-self: center;
+                        margin-bottom: 1em;
+                    }
+    
+                    .dj_link {
+                        grid-area: djlink;
+    
+                        display: flex;
+                        justify-content: space-between;
+    
+                        p {
+                            place-content: center;
+
+                        }
+                    
+                        a {
+                            display: flex;
+                            border-radius: 50%;
+                            min-width: 3em;
+                            min-height: 3em;
+                            /* de cirkel */
+                            align-self: end;
+                            /* '>' in de cirkel */
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
