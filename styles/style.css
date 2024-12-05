@@ -44,17 +44,12 @@ header {
     :nth-of-type(3) {
         grid-area: c;
 
-        section {
-            margin-top: -35em;
-        }
+
     }
     :nth-of-type(4) {
         grid-area: d;
 
-        /* section naar boven brengen op mobile versie */
-        section {
-            margin-top: -35em;
-        }
+
     }
 
     details summary {
@@ -121,6 +116,10 @@ main {
             padding-top: 1em;
             padding-bottom: 1em;
             margin-left: 1em;
+        }
+
+        li:first-child {
+            margin-top: 2em;
         }
 
         li:last-child {
@@ -211,7 +210,7 @@ main {
         transform: translateX(-50%);
         width: clamp(40vw, 80vw, 30em);
         height: 5em;
-
+        z-index: 10;
 
         display: flex;
         align-items: center;
