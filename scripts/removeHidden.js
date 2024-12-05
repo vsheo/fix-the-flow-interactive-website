@@ -5,8 +5,8 @@
 
 
 
-// selecteer de div met classname mobile_hidden
-const hiddenElementen = document.querySelector('div.hidden');
+// selecteer alle elementen met de class "hidden"
+const hiddenElementen = document.querySelectorAll('.hidden');
 
 // selecteer de details elementen
 // dit geeft een nodelist terug, ik heb een array nodig
@@ -23,15 +23,17 @@ for (let i = 0; i < allDetailsArray.length; i++) {
     // luister naar een klik op een details element
     detail.addEventListener('toggle', function () {
         if (detail.open) {
-            // haal de classname "hidden" weg van de div
+            // haal de classname "hidden" 1 voor 1 weg van alle elementen in hiddenElementen
             // nu komen de week dagen, tijdlijn, radio nav en player op beeld
-            hiddenElementen.classList.remove('hidden');
+            for (let a = 0; a < hiddenElementen.length; a++) {
+                let element = hiddenElementen[a];
+                element.classList.remove('hidden');
+            }
 
             // verwijder de details element, die open is, uit allDetailsArray
             // splice, begin bij i en haal 1 var weg
             // i is de open details element
             allDetailsArray.splice(i,1);
-            console.log(allDetailsArray)
 
             // allDetailsArray heeft nu alleen de gesloten details elementen erin
             // 1 voor 1 alle gesloten details de classname 'hidden' geven

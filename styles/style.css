@@ -22,16 +22,79 @@ header {
     height: 3em;
 }
 
-.hidden {
-    display: none;
+
+/* SUMMARY INDELEN */
+.programma_container {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    grid-template-rows: min-content min-content;
+    grid-template-areas: 
+    "a b"
+    "c d";
+    gap: 1em;
+    padding: 1em;
+
+    /* DETAILS SUMMARY POSITIE */
+    :nth-of-type(1) {
+        grid-area: a;
+    }
+    :nth-of-type(2) {
+        grid-area: b;
+    }
+    :nth-of-type(3) {
+        grid-area: c;
+
+        section {
+            margin-top: -35em;
+        }
+    }
+    :nth-of-type(4) {
+        grid-area: d;
+
+        /* section naar boven brengen op mobile versie */
+        section {
+            margin-top: -35em;
+        }
+    }
+
+    details summary {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+        gap: 1em;
+
+        img{
+            width: 10em;
+            height: 10em;
+            box-shadow: 5px 5px 3px 0px #00000014;
+        }
+    }
+
+    /* open details element heeft geen summary */
+    details[open] {
+        summary {
+            display: none;
+        }
+    }
 }
 
+/* MAIN INDELEN */
 main {
+    display: grid;
+    grid-template-areas:
+    "week week"
+    "tijd section";
+
     .week {
+        grid-area: week;
+
         display: flex;
         flex-direction: row;
 
         position: sticky;
+        top: 0em;
+        z-index: 100;
 
         overflow-x: auto;
         overflow-y: hidden;
@@ -52,6 +115,8 @@ main {
     }
 
     .tijd {
+        grid-area: tijd;
+
         li {
             padding-top: 1em;
             padding-bottom: 1em;
@@ -79,6 +144,10 @@ main {
         li:last-child::after {
             content: "";
         }
+    }
+
+    .programma_container details section {
+        grid-area: section;
     }
 
     .radio_menu {
@@ -170,142 +239,86 @@ main {
             margin-right: 1em;
         }
     }
+
+    .hidden {
+        display: none;
+    }
 }
 
-    .programma_container {
 
-    }
-
-    .programma_container {
-        display: grid;
-        grid-template-areas: 
-        "a b"
-        "c d";
+/* DETAILS INDELEN */
+.programma_container details {
+    /* PROGRAMMA KAARTJES */
+    section {
+        display: flex;
+        flex-direction: column;
         gap: 1em;
-        padding: 1em;
 
-        /* SUMMARY POSITIE */
-        :nth-of-type(1) {
-            grid-area: a;
-        }
-        :nth-of-type(2) {
-            grid-area: b;
-        }
-        :nth-of-type(3) {
-            grid-area: c;
+        article {
+            box-shadow: 0 0 8px #00000014;
+            border-radius: 10px;
+            padding: 0.5em;
+            max-height: 20em;
+            width: 16.2em;
 
-            section {
-                margin-top: -35em;
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            grid-template-rows: min-content min-content min-content;
+            grid-template-areas: 
+            "pic titel"
+            ". info"
+            ". djlink";
+
+            position: relative;
+            right: 1em;
+
+            .titel {
+                grid-area: titel;
+                justify-self: start;
+                align-self: center;
+                margin-left: 0.3em;
             }
-        }
-        :nth-of-type(4) {
-            grid-area: d;
 
-            /* section naar boven brengen op mobile versie */
-            section {
-                margin-top: -35em;
+            .profile_picture {
+                grid-area: pic;
+
+                place-content: center;
+                border-radius: 50%;
+                height: auto;
+                width: 3.5em;
+                height: 3.5em;
             }
-        }
 
-        /* open details element heeft geen summary */
-        details[open] {
-            summary {
-                display: none;
+            .info {
+                grid-area: info;
+
+                max-width: 11em;
+                justify-self: center;
+                margin-bottom: 1em;
             }
-        }
 
-        /* DETAILS INDELEN */
-        details {
-            grid-area: section;
-    
-            summary {
+            .dj_link {
+                grid-area: djlink;
+
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-top: 2em;
-                gap: 1em;
-    
-                img{
-                    width: 10em;
-                    height: 10em;
-                    box-shadow: 5px 5px 3px 0px #00000014;
+                justify-content: space-between;
+
+                p {
+                    place-content: center;
+
                 }
-            }
-    
-            /* PROGRAMMA KAARTJES */
-            section {
-                display: flex;
-                flex-direction: column;
-                gap: 1em;
-    
-                article {
-                    box-shadow: 0 0 8px #00000014;
-                    border-radius: 10px;
-                    padding: 0.5em;
-                    max-height: 20em;
-                    width: 16.2em;
-    
-                    display: grid;
-                    grid-template-columns: min-content 1fr;
-                    grid-template-rows: min-content min-content min-content;
-                    grid-template-areas: 
-                    "pic titel"
-                    ". info"
-                    ". djlink";
-    
-                    position: relative;
-                    right: 1em;
-    
-                    .titel {
-                        grid-area: titel;
-                        justify-self: start;
-                        align-self: center;
-                        margin-left: 0.3em;
-                    }
-    
-                    .profile_picture {
-                        grid-area: pic;
-    
-                        place-content: center;
-                        border-radius: 50%;
-                        height: auto;
-                        width: 3.5em;
-                        height: 3.5em;
-                    }
-    
-                    .info {
-                        grid-area: info;
-    
-                        max-width: 11em;
-                        justify-self: center;
-                        margin-bottom: 1em;
-                    }
-    
-                    .dj_link {
-                        grid-area: djlink;
-    
-                        display: flex;
-                        justify-content: space-between;
-    
-                        p {
-                            place-content: center;
-
-                        }
-                    
-                        a {
-                            display: flex;
-                            border-radius: 50%;
-                            min-width: 3em;
-                            min-height: 3em;
-                            /* de cirkel */
-                            align-self: end;
-                            /* '>' in de cirkel */
-                            justify-content: center;
-                        }
-                    }
+            
+                a {
+                    display: flex;
+                    border-radius: 50%;
+                    min-width: 3em;
+                    min-height: 3em;
+                    /* de cirkel */
+                    align-self: end;
+                    /* '>' in de cirkel */
+                    justify-content: center;
                 }
             }
         }
     }
 }
-
