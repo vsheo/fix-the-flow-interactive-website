@@ -163,12 +163,13 @@ main {
         top: 50%;
         transform: translate(90%, -50%);
         transition: 0.5s;
+        z-index: 20;
 
         padding: 1em;
         height: 17em;
         width: 12em;
 
-        .openNav {
+        .open_nav {
             position: fixed;
             top: 50%;
             transform: translate(0, -50%);
@@ -181,7 +182,7 @@ main {
             height: 2em;
         }
 
-        .openDetail {
+        .open_details {
             margin-left: 1.5em;
             border: none;
             background-color: inherit;
