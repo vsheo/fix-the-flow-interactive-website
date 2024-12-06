@@ -12,6 +12,7 @@ console.log(detailsAll[0],detailsAll[1], detailsAll[2], detailsAll[3]);
 
 detailButtons.forEach((button) => {
     button.addEventListener('click', function(e) {
+        console.log(e);
 
         // loop door alle details elementen
         detailsAll.forEach((detail) => {
@@ -32,28 +33,24 @@ detailButtons.forEach((button) => {
             detailsAll[0].classList.remove('hidden');
             // maak het details element open
             detailsAll[0].open = true;
-
         }
         else if (button.classList.contains('open_slam')) {
             console.log('slam!', detailsAll[1]);
 
             detailsAll[1].classList.remove('hidden');
             detailsAll[1].open = true;
-
         }
         else if (button.classList.contains('open_sublime')) {
-            console.log('sublime', detailsAll[0]);
+            console.log('sublime', detailsAll[2]);
 
             detailsAll[2].classList.remove('hidden');
             detailsAll[2].open = true;
-
         }
         else if (button.classList.contains('open_honderdp')) {
-            console.log('100%.NL', detailsAll[0]);
+            console.log('100%.NL', detailsAll[3]);
 
             detailsAll[3].classList.remove('hidden');
             detailsAll[3].open = true;
-
         }
     });
 });
