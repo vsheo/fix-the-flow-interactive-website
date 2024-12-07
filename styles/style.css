@@ -23,68 +23,6 @@ header {
 }
 
 
-/* SUMMARY INDELEN */
-.programma_container {
-    display: grid;
-    grid-template-columns: min-content min-content;
-    grid-template-rows: min-content min-content;
-    grid-template-areas: 
-    "a b"
-    "c d";
-    gap: 1em;
-    padding: 1em;
-
-    /* SUMMARY */
-    @media screen and (min-width: 800px) {
-        grid-template-areas:
-        "a"
-        "b"
-        "c"
-        "d";
-    }
-
-    /* DETAILS SUMMARY POSITIE */
-    :nth-of-type(1) {
-        grid-area: a;
-    }
-    :nth-of-type(2) {
-        grid-area: b;
-    }
-    :nth-of-type(3) {
-        grid-area: c;
-
-
-    }
-    :nth-of-type(4) {
-        grid-area: d;
-    }
-
-    details summary {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 2em;
-        gap: 1em;
-
-        img{
-            width: 10em;
-            height: 10em;
-            box-shadow: 5px 5px 3px 0px #00000014;
-        }
-
-        @media screen and (min-width: 800px) {
-            margin-top: 0;
-        }
-    }
-
-    /* open details element heeft geen summary */
-    details[open] {
-        summary {
-            display: none;
-        }
-    }
-}
-
 /* MAIN INDELEN */
 main {
     display: grid;
@@ -115,6 +53,20 @@ main {
         overflow-x: auto;
         overflow-y: hidden;
 
+        /* WEEK */
+        @media screen and (min-width: 800px) {
+            background-color: aquamarine;
+            flex-direction: column;
+            width: 6em;
+            height: 30em;
+            position: relative;
+            left: 3em;
+            text-align: center;
+
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
         li {
             padding: 0.8em;
             margin-top: 0.1em;
@@ -140,16 +92,6 @@ main {
                 margin-right: 0;
             }
         }
-
-        /* WEEK */
-        @media screen and (min-width: 800px) {
-            background-color: aquamarine;
-            flex-direction: column;
-            position: relative;
-            left: 3em;
-            width: 6em;
-            text-align: center;
-        }
     }
 
     .tijd {
@@ -159,6 +101,8 @@ main {
         @media screen and (min-width: 800px) {
             display: flex;
             flex-direction: row;
+            position: relative;
+            left: 16em;
         }
 
         li {
@@ -325,95 +269,168 @@ main {
 }
 
 
-/* DETAILS INDELEN */
-.programma_container details {
-    /* PROGRAMMA KAARTJES */
-    section {
+/* DETAILS SUMMARY INDELEN */
+.programma_container {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    grid-template-rows: min-content min-content;
+    grid-template-areas: 
+    "a b"
+    "c d";
+    gap: 1em;
+    padding: 1em;
+
+    /* SUMMARY */
+    @media screen and (min-width: 800px) {
+        grid-template-areas:
+        "a"
+        "b"
+        "c"
+        "d";
+    }
+
+    /* DETAILS SUMMARY POSITIE */
+    :nth-of-type(1) {
+        grid-area: a;
+    }
+    :nth-of-type(2) {
+        grid-area: b;
+    }
+    :nth-of-type(3) {
+        grid-area: c;
+    }
+    :nth-of-type(4) {
+        grid-area: d;
+    }
+
+    details summary {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
         gap: 1em;
 
-        /* SECTION */
         @media screen and (min-width: 800px) {
+            display: flex;
             flex-direction: row;
-            gap: 0;
+            margin-top: 0;
         }
 
-        article {
-            box-shadow: 0 0 8px #00000014;
-            border-radius: 10px;
-            padding: 0.5em;
-            max-height: 20em;
-            width: 16.2em;
+        img{
+            width: 10em;
+            height: 10em;
+            box-shadow: 5px 5px 3px 0px #00000014;
+        }
+    }
 
-            display: grid;
-            grid-template-columns: min-content 1fr;
-            grid-template-rows: min-content min-content min-content;
-            grid-template-areas: 
-            "pic titel"
-            ". info"
-            ". djlink";
+    /* open details element heeft geen summary */
+    details[open] {
+        summary {
+            display: none;
+        }
+    }
+}
 
-            position: relative;
-            right: 1em;
+/* DETAILS SECTION INDELEN */
+.programma_container details section{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 
-            /* ARTICLE */
+    /* SECTION */
+    @media screen and (min-width: 800px) {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    h2 {
+        @media screen and (min-width: 800px) {
+            /* auto zodat alle articles op de zelfde plek beginnen */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+
+/* DETAILS SECTION ARTICLE INDELEN */
+.programma_container details section article {
+    box-shadow: 0 0 8px #00000014;
+    border-radius: 10px;
+    padding: 0.5em;
+    max-height: 20em;
+    width: 16.2em;
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content min-content min-content;
+    grid-template-areas: 
+    "pic titel"
+    ". info"
+    ". djlink";
+
+    position: relative;
+    right: 1em;
+
+    /* ARTICLE */
+    @media screen and (min-width: 800px) {
+        grid-template-columns: min-content 1fr;
+        grid-template-rows: min-content min-content 1fr;
+
+        min-height: 10em;
+        min-width: 16em;
+        margin-left: 1.5em;
+    }
+
+    .titel {
+        grid-area: titel;
+        justify-self: start;
+        align-self: center;
+        margin-left: 0.3em;
+    }
+
+    .profile_picture {
+        grid-area: pic;
+
+        place-content: center;
+        border-radius: 50%;
+        height: auto;
+        width: 3.5em;
+        height: 3.5em;
+    }
+
+    .info {
+        grid-area: info;
+
+        max-width: 11em;
+        justify-self: center;
+        margin-bottom: 1em;
+    }
+
+    .dj_link {
+        grid-area: djlink;
+
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            place-content: center;
+
             @media screen and (min-width: 800px) {
-                grid-template-columns: min-content 1fr;
-                grid-template-rows: min-content min-content 1fr;
-
-                min-height: 10em;
-                min-width: 16em;
-                margin-left: 1.5em;
+                justify-self: end;
+                align-self: end;
             }
-
-            .titel {
-                grid-area: titel;
-                justify-self: start;
-                align-self: center;
-                margin-left: 0.3em;
-            }
-
-            .profile_picture {
-                grid-area: pic;
-
-                place-content: center;
-                border-radius: 50%;
-                height: auto;
-                width: 3.5em;
-                height: 3.5em;
-            }
-
-            .info {
-                grid-area: info;
-
-                max-width: 11em;
-                justify-self: center;
-                margin-bottom: 1em;
-            }
-
-            .dj_link {
-                grid-area: djlink;
-
-                display: flex;
-                justify-content: space-between;
-
-                p {
-                    place-content: center;
-
-                }
-            
-                a {
-                    display: flex;
-                    border-radius: 50%;
-                    min-width: 3em;
-                    min-height: 3em;
-                    /* de cirkel */
-                    align-self: end;
-                    /* '>' in de cirkel */
-                    justify-content: center;
-                }
-            }
+        }
+    
+        a {
+            display: flex;
+            border-radius: 50%;
+            min-width: 3em;
+            min-height: 3em;
+            /* de cirkel */
+            align-self: end;
+            /* '>' in de cirkel */
+            justify-content: center;
         }
     }
 }
