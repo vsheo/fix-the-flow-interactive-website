@@ -20,6 +20,11 @@ header {
     justify-content: center;
     align-items: center;
     height: 3em;
+
+    @media screen and (min-width: 800px) {
+        display: none;
+    }
+
 }
 
 
@@ -38,6 +43,8 @@ main {
         grid-template-areas:
         "tijd tijd"
         "week details";
+
+        overflow: hidden;
     }
 
     .week {
@@ -59,12 +66,26 @@ main {
             flex-direction: column;
             width: 6em;
             height: 30em;
-            position: relative;
-            left: 3em;
             text-align: center;
+            border-radius: 10px;
+
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 3em;
 
             overflow-x: hidden;
             overflow-y: auto;
+
+            /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar2 */
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                background: #e9e9e9;
+                border-radius: 10px;
+            }
         }
 
         li {
@@ -99,10 +120,17 @@ main {
 
         /* TIJD */
         @media screen and (min-width: 800px) {
+            background-color: inherit;
             display: flex;
             flex-direction: row;
-            position: relative;
-            left: 16em;
+            position: fixed;
+            z-index: 50;
+            top: 0;
+            margin-left: 10em;
+
+            width: 100vw;
+            overflow-x: auto;
+            overflow-y: hidden;
         }
 
         li {
@@ -149,16 +177,20 @@ main {
     }
 
     .programma_container {
+        /* PROGRAMMA CONTAINER */
+        @media screen and (min-width: 800px) {
+            grid-area: details;
+            position: relative;
+            top: 5em;
+            left: 15em;
+            margin-bottom: 20em;
+        }
+
         details section {
             grid-area: section;
             @media screen and (min-width: 800px) {
                 grid-area: none;
             }
-        }
-
-        /* PROGRAMMA CONTAINER */
-        @media screen and (min-width: 800px) {
-            grid-area: details;
         }
     }
 
@@ -269,6 +301,24 @@ main {
 }
 
 
+/* DETAILS DESKTOP_ARTICLE */
+.desktop_article {
+    box-shadow: 0 0 16px #00000029;
+    border-radius: 10px;
+    display: block;
+    position: relative;
+    left: -4em;
+    justify-content: center;
+
+    padding: 0.5em;
+    max-width: 30em;
+    margin-bottom: 2em;
+
+    h2 {
+        font-weight: bold;
+    }
+}
+
 /* DETAILS SUMMARY INDELEN */
 .programma_container {
     display: grid;
@@ -313,12 +363,21 @@ main {
         @media screen and (min-width: 800px) {
             display: flex;
             flex-direction: row;
+            position: relative;
+            left: -4.5em;
             margin-top: 0;
+
+            background-color: aqua;
+            border-radius: 10px;
+            padding: 1em;
+
+            height: 5em;
+            width: 90vw;
         }
 
         img{
-            width: 10em;
-            height: 10em;
+            width: 2.5em;
+            height: 2.5em;
             box-shadow: 5px 5px 3px 0px #00000014;
         }
     }
@@ -341,14 +400,42 @@ main {
     @media screen and (min-width: 800px) {
         flex-direction: row;
         gap: 0;
+        padding: 0.7em;
+        border-radius: 10px;
+
+        position: relative;
+        margin-left: -6vw;
+
+        width: 90vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #e9e9e9;
+            border-radius: 10px;
+        }
     }
 
     h2 {
         @media screen and (min-width: 800px) {
-            /* auto zodat alle articles op de zelfde plek beginnen */
-            margin-left: auto;
-            margin-right: auto;
+            display: none;
         }
+    }
+}
+
+/* DETAILS SNAP */
+.programma_container {
+    scroll-snap-type: y mandatory;
+
+    position: relative;
+
+    /* DETAILS SNAP */
+    .snapElement {
+        scroll-snap-align: center;
     }
 }
 

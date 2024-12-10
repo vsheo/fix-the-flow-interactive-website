@@ -1,0 +1,65 @@
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    height: 10em;
+    width: 10em;
+}
+
+.div1 {
+    background-color: aquamarine;
+}
+
+.div2 {
+    background-color:brown;
+}
+
+.div3 {
+    background-color: blue;
+}
+
+/* navigation werkt tussen linkjes die naar een andere pagina verwijzen */
+/* als het een link is die naar een andere website verwijst dan zou het normaal moeten werken */
+@view-transition {
+    navigation: auto;
+}
+
+
+@keyframes slide-in {
+    from {
+        transform: translateX(0%);
+    }
+    
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(-100%);
+    }
+    
+    to {
+        transform: translateX(0%);
+    }
+}
+
+
+.div1, .div2, .div3{
+    view-transition-name: div-animation;
+}
+
+
+::view-transition-old(div-animation) {
+    animation: 1s slide-in;
+}
+  
+::view-transition-new(div-animation) {
+    animation: 1s slide-out;
+}
