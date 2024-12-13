@@ -1,4 +1,4 @@
-// deze script zorgt ervoor dat de programma en de tijdlijn gezaamelij scrollen
+// deze script zorgt ervoor dat de programma en de tijdlijn gezamelijk scrollen
 
 
 // selecteer alle programma's
@@ -13,28 +13,26 @@ const tijdLijn = document.querySelector(".tijd");
 // https://dev.to/juanbelieni/how-to-create-horizontal-scroll-with-mouse-wheel-using-javascript-4cm5
 // gebruikt de mouse wheel om links en rechts te scrollen (voor de programma en de tijdlijn)
 
-// ga door alle section(radiozenders)
-programma.forEach(function (section) {
-  // luister naar een scroll
-  section.addEventListener("wheel", (event) => {
-    event.preventDefault();
-  
-    // verander de verticale scroll naar een horizontale scroll
-    // voor de radiozenders
-    section.scrollBy({
-      left: event.deltaY * 3,
-      behavior: "smooth",
-    });
+// sametime scroll werkt alleen op de desktop versie
+if (window.innerWidth >= 800) {
+  // ga door alle section(radiozenders)
+  programma.forEach(function (section) {
+    // luister naar een scroll
+    section.addEventListener("wheel", (event) => {
+      event.preventDefault();
+    
+      // verander de verticale scroll naar een horizontale scroll
+      // voor de radiozenders
+      section.scrollBy({
+        left: event.deltaY * 3,
+        behavior: "smooth",
+      });
 
-    // voor de tijdlijn
-    tijdLijn.scrollBy({
-      left: event.deltaY * 3,
-      behavior: "smooth",
+      // voor de tijdlijn
+      tijdLijn.scrollBy({
+        left: event.deltaY * 3,
+        behavior: "smooth",
+      });
     });
   });
-});
-
-
-
-
-
+}
