@@ -301,12 +301,12 @@ main {
 }
 
 
-/* DETAILS DESKTOP_ARTICLE */
+/* DETAILS DESKTOP ARTICLE */
 .desktop_article {
     box-shadow: 0 0 16px #00000029;
     border-radius: 10px;
     display: block;
-    position: relative;
+    /* position: relative; */
     left: -4em;
     justify-content: center;
 
@@ -376,9 +376,15 @@ main {
         }
 
         img{
-            width: 2.5em;
-            height: 2.5em;
+            width: 10em;
+            height: 10em;
             box-shadow: 5px 5px 3px 0px #00000014;
+            
+            @media screen and (min-width: 800px) {
+                width: 2.5em;
+                height: 2.5em;
+            }
+
         }
     }
 
@@ -426,19 +432,6 @@ main {
         }
     }
 }
-
-/* DETAILS SNAP */
-.programma_container {
-    scroll-snap-type: y mandatory;
-
-    position: relative;
-
-    /* DETAILS SNAP */
-    .snapElement {
-        scroll-snap-align: center;
-    }
-}
-
 
 /* DETAILS SECTION ARTICLE INDELEN */
 .programma_container details section article {
@@ -518,6 +511,29 @@ main {
             align-self: end;
             /* '>' in de cirkel */
             justify-content: center;
+
+            &.sublime {
+                color: black;
+
+                :hover {
+                    color: white
+                }
+            }
         }
     }
 }
+
+
+/* DETAILS SNAP */
+.programma_container {
+    scroll-snap-type: y mandatory;
+    position: relative;
+
+    /* DETAILS SNAP */
+    .snapElement {
+        scroll-snap-align: center;
+        /* https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-left */
+        scroll-margin-left: 10em;
+    }
+}
+

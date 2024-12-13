@@ -22,6 +22,7 @@ function openSnapElement() {
 }
 
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 function scrollToTop(e) {
 	// alleen op desktop
     if (window.innerWidth >= 800) {
@@ -33,9 +34,8 @@ function scrollToTop(e) {
 			nuOpen.classList.remove("snapElement");
 		}
 		
-		// nieuwe naar het midden
+		// nieuwe section open maken
 		const theDetail = e.currentTarget;
-		theDetail.scrollIntoView({ behavior: "smooth", block: "start" });
 		theDetail.classList.add("snapElement");
 	}
 }
