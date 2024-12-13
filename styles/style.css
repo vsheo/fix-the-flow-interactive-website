@@ -80,6 +80,7 @@ main {
             /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar2 */
             &::-webkit-scrollbar {
                 width: 10px;
+                height: 10px;
             }
             
             &::-webkit-scrollbar-thumb {
@@ -130,7 +131,17 @@ main {
 
             width: 100vw;
             overflow-x: auto;
-            overflow-y: hidden;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                width: 10px;
+                height: 10px;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                background: #e9e9e9;
+                border-radius: 10px;
+            }
         }
 
         li {
@@ -414,9 +425,10 @@ main {
 
         width: 90vw;
         overflow-x: auto;
-        overflow-y: hidden;
+        overflow-y: auto;
 
         &::-webkit-scrollbar {
+            width: 10px;
             height: 10px;
         }
 
