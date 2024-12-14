@@ -1,0 +1,135 @@
+/* source: https://codepen.io/team/keyframers/pen/LYWyrqO?editors=1100 */
+
+
+html {
+    height: 100%;
+    display: flex;
+    background: #0a1931;
+  }
+  body {
+    margin: auto;
+  }
+  
+  .circle {
+    display: grid;
+    grid-template-areas: "layer";
+    place-items: center;
+    background: #185adb;
+    border-radius: 50%;
+  
+    --radius: 60vmin;
+    width: calc(2 * var(--radius));
+    height: calc(2 * var(--radius));
+  }
+  
+  .stat {
+    grid-area: layer;
+  
+    /* // Decimal value, 0-1 based on the child's index. */
+    --d: calc(var(--i) / var(--total));
+    /* // Offset to get better starting placement on the circle */
+    --r-offset: -0.25turn;
+    /* // Full circle */
+    --r-amount: 1turn;
+    /* // Rotation based on the decimal and r modifiers */
+    --r: calc((var(--r-amount) * var(--d)) + var(--r-offset));
+    /* // Rotate, transform out, then negative rotation so the content appears upright */
+    --transform: rotate(var(--r)) translate(var(--radius))
+      rotate(calc(-1 * var(--r)));
+  
+    transform: var(--transform);
+    transition: transform 1.5s ease-in-out;
+    /* //transition-delay: calc(0.1s * var(--i)); */
+  
+    .circle:hover & {
+      --radius: calc(-20vmin);
+      /* // Animate the rotation */
+      --r-offset: -1.75turn; 
+      /* //0.75turn; */
+    }
+  }
+  
+  img {
+    max-width: 40%;
+  }
+  
+
+
+
+
+
+/* ARTICLES BINNEN */
+section article {
+    background-color: white;
+    box-shadow: 0 0 8px #00000014;
+    border-radius: 10px;
+    padding: 0.5em;
+    max-height: 20em;
+    width: 16.2em;
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content min-content min-content;
+    grid-template-areas: 
+    "pic titel"
+    ". info"
+    ". djlink";
+
+    position: relative;
+    right: 1em;
+
+    .titel {
+        grid-area: titel;
+        justify-self: start;
+        align-self: center;
+        margin-left: 0.3em;
+    }
+
+    .profile_picture {
+        grid-area: pic;
+
+        place-content: center;
+        border-radius: 50%;
+        height: auto;
+        width: 3.5em;
+        height: 3.5em;
+    }
+
+    .info {
+        grid-area: info;
+
+        max-width: 11em;
+        justify-self: center;
+        margin-bottom: 1em;
+    }
+
+    .dj_link {
+        grid-area: djlink;
+
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            place-content: center;
+        }
+    
+        a {
+            display: flex;
+            border-radius: 50%;
+            min-width: 3em;
+            min-height: 3em;
+            /* de cirkel */
+            align-self: end;
+            /* '>' in de cirkel */
+            justify-content: center;
+
+            &.sublime {
+                color: black;
+
+                :hover {
+                    color: white
+                }
+            }
+        }
+    }
+}
