@@ -25,13 +25,13 @@ if (window.innerWidth >= 800) {
       // voor de radiozenders
       section.scrollBy({
         left: event.deltaY * 3,
-        behavior: "smooth",
+        // behavior: "smooth",
       });
 
       // voor de tijdlijn
       tijdLijn.scrollBy({
         left: event.deltaY * 3,
-        behavior: "smooth",
+        // behavior: "smooth",
       });
     });
   });
