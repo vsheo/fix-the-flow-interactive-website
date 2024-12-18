@@ -13,13 +13,4 @@ const radioMenu = document.querySelector('.radio_menu')
 navButton.addEventListener('click', () => {
     // voeg een class toe aan de nav, of haal het ervan af
     radioMenu.classList.toggle('nav-active');
-
-    // draai '<' om als de nav open is
-    if (radioMenu.classList.contains('nav-active')) {
-        navButton.textContent = '>';
-    }
-    // draai '>' om als het gesloten is
-    else {
-        navButton.textContent = '<';
-    }
 });

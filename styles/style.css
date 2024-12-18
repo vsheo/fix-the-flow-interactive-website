@@ -206,8 +206,6 @@ main {
     }
 
     .radio_menu {
-        background-color: aquamarine;
-
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -215,15 +213,15 @@ main {
 
         /* rechts in het midden */
         position: fixed;
-        right: 0;
-        top: 50%;
-        transform: translate(90%, -50%);
+        right: 2.5em;
+        top: 20%;
+        transform: translate(95%, -50%);
         transition: 0.5s;
-        z-index: 20;
+        z-index: 200;
 
         padding: 1em;
         height: 17em;
-        width: 12em;
+        width: 16em;
 
         /* RADIO_MENU */
         @media screen and (min-width: 800px) {
@@ -231,20 +229,20 @@ main {
         }
 
         .open_nav {
-            position: fixed;
-            top: 50%;
-            transform: translate(0, -50%);
-            background-color: aquamarine;
+            position: relative;
             border: none;
-            border-radius: 150px;
+            background-color: inherit;
+            text-align: center;
 
-            left: -0.8em;
+            z-index: 10;
+
+            left: -1em;
             width: 2em;
             height: 2em;
         }
 
         .nav_button {
-            margin-left: 1.5em;
+            /* margin-left: 3.5em; */
             border: none;
             background-color: inherit;
 
@@ -258,8 +256,18 @@ main {
 
     /* slide nav in beeld. classlist add met JS */
     .nav-active {
-        transform: translate(0, -50%);
+        background-color: rgb(250, 250, 250);
+        transform: translate(20%, -50%);
         transition: 0.5s;
+
+        .open_nav {
+            transform: rotate(90deg);
+            transition: 0.4s;
+        }
+    }
+
+    .nav_button-active {
+        opacity: 0.3;
     }
 
     .player {

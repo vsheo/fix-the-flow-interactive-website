@@ -14,6 +14,11 @@ detailButtons.forEach((button) => {
     button.addEventListener('click', function(e) {
         console.log(e);
 
+        // haal de oude highlight weg
+        navHighlightReset();
+        // zet highlight op de nieuwe button
+        e.currentTarget.classList.add('nav_button-active');
+
         // loop door alle details elementen
         detailsAll.forEach((detail) => {
             // als de details element open is
@@ -55,6 +60,12 @@ detailButtons.forEach((button) => {
     });
 });
 
+
+function navHighlightReset() {
+    detailButtons.forEach(button => {
+        button.classList.remove('nav_button-active');
+    });
+};
 
 
 
