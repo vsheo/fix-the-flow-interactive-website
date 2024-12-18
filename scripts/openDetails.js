@@ -5,6 +5,9 @@
 // selecteer alle buttons
 const detailButtons = document.querySelectorAll('.nav_button');
 
+// selecteer de sluit button
+const closeButton = document.querySelector('.close_nav');
+
 // selecteer alle details elementen
 const detailsAll = document.querySelectorAll('details');
 console.log(detailsAll[0],detailsAll[1], detailsAll[2], detailsAll[3]);
@@ -60,6 +63,9 @@ detailButtons.forEach((button) => {
     });
 });
 
+closeNav(closeButton);
+
+
 
 function navHighlightReset() {
     detailButtons.forEach(button => {
@@ -67,7 +73,11 @@ function navHighlightReset() {
     });
 };
 
-
+function closeNav(button) {
+    button.addEventListener('click', () => {
+        radioMenu.classList.remove('nav-active');
+    });    
+}
 
 
 // https://stackoverflow.com/questions/77176535/how-to-target-this-button-in-the-if-condition-in-vanilla-javascript
