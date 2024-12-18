@@ -91,7 +91,6 @@ main {
 section {
     position: absolute;
     left: 5%;
-    top: 5%;
     transform: translateX(-50%);
 }
 
@@ -173,7 +172,8 @@ section article {
 
 /* PLAYER POSITION + SCALE*/
 .player {
-    background-color: blue;
+    background-color: lightgray;
+    box-shadow: 0px 0px 8px;
 
     position: fixed;
     left: 40%;
@@ -263,8 +263,6 @@ section article {
         }
     }
 }
-
-
 
 
 /* ANIMATIE */

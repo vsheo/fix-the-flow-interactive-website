@@ -623,6 +623,10 @@ main {
                 }
             }
         }
+
+        .hidden_link {
+            display: none;
+        }
     }
 }
 
