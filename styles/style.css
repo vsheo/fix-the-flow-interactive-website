@@ -351,16 +351,16 @@ main {
     }
 
     /* DETAILS SUMMARY POSITIE */
-    .open {
+    .veronica {
         grid-area: a;
     }
-    .eersteGesloten {
+    .slam {
         grid-area: b;
     }
-    .tweedeGesloten {
+    .sublime {
         grid-area: c;
     }
-    .derdeGesloten {
+    .honderdp {
         grid-area: d;
     }
 
