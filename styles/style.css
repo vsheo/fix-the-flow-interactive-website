@@ -29,8 +29,8 @@ header {
         color: black;
 
         position: relative;
-        left: 50%;
-        transition: translateX(-50%);
+        left: 75%;
+        transition: translateX(-75%);
     }
 
     .open_nav {
@@ -66,7 +66,7 @@ header {
         /* rechts in het midden */
         position: fixed;
         left: 23em;
-        transform: translate(10%, 46.4%);
+        transform: translate(100vw, 46vh);
         transition: 0.5s;
         z-index: 110;
 
@@ -103,7 +103,7 @@ header {
 
     /* slide nav in beeld. classlist add met JS */
     .nav-active {
-        transform: translate(-90%, 46.4%);
+        transform: translate(-90%, 46vh);
         transition: 0.5s;
 
         .open_nav {
@@ -341,6 +341,56 @@ main {
             height: 3em;
             width: 3em;
             margin-right: 1em;
+        }
+    }
+
+    .information {
+        position: fixed;
+        bottom: 3em;
+        top: 85%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+
+
+
+        @media screen and (min-width: 800px) {
+            top: 1em;
+            left: 5em;
+        }
+        
+        button {
+            border: none;
+            background-color: inherit;
+        }
+
+        .de_info {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, -200%);
+            border-radius: 10px;
+
+            text-align: start;
+            font-size: 16px;
+
+            padding: 1em;
+            height: 35vh;
+            width: 85vw;
+
+            @media screen and (min-width: 800px) {
+                background-color: lightslategray;
+                top: 35%;
+                left: 120%;
+                transform: none;
+
+                padding: 0.5em;
+                height: 20vh;
+                width: 40vw;
+            }
+        }
+
+        .popUp_hidden {
+            display: none;
         }
     }
 
