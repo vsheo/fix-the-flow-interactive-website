@@ -226,6 +226,7 @@ main {
 
         /* TIJD */
         @media screen and (min-width: 800px) {
+            background-color: inherit;
             display: flex;
             flex-direction: row;
             position: fixed;
