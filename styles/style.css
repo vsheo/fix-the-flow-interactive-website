@@ -214,6 +214,11 @@ main {
                 margin-right: 0;
             }
         }
+
+        li:nth-of-type(3) {
+            background-color: #E60063;
+            color: black;
+        }
     }
 
     .tijd {
@@ -221,7 +226,6 @@ main {
 
         /* TIJD */
         @media screen and (min-width: 800px) {
-            background-color: inherit;
             display: flex;
             flex-direction: row;
             position: fixed;
@@ -284,6 +288,10 @@ main {
 
         li:last-child::after {
             content: "";
+        }
+
+        li:nth-of-type(5) {
+            color: #E60063;
         }
     }
 
