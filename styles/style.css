@@ -396,6 +396,10 @@ main {
                 height: 20vh;
                 width: 40vw;
             }
+
+            h2 {
+                text-align: center;
+            }
         }
 
         .popUp_hidden {

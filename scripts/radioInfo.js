@@ -5,6 +5,8 @@ const meerInfo = document.querySelector('.information');
 
 // selecteer de pop up die te voorschijn komt
 const popUp = document.querySelector('.de_info');
+// selecteer de titel
+const titel = document.querySelector('.info_title');
 
 // sluit pop up button
 const openDicht = document.querySelector('.openClose');
@@ -14,6 +16,7 @@ const openDicht = document.querySelector('.openClose');
 meerInfo.addEventListener('click', () => {
     // haal de display none class weg van de pop up
     popUp.classList.toggle('popUp_hidden');
+    titel.classList.toggle('popUp_hidden');
 
     // verander de text in de button, om aan te aangeefen dat het gesloten kan worden
     if (!popUp.classList.contains('popUp_hidden')) {
