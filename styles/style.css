@@ -58,7 +58,7 @@ header {
     }
 
     .radio_menu {
-        /* background-color: rgb(250, 250, 250); */
+        background-color: #c9c9c9;
         display: flex;
         flex-direction: column;
         justify-content: center;
